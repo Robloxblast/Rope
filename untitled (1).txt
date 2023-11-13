@@ -1,0 +1,106 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Test", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddToggle({
+	Name = "Inf Strength",
+	Default = false,
+	Callback = function(Value)
+		  getgenv(). Str = Value
+		
+		while getgenv(). Str do
+		game:GetService("ReplicatedStorage").Remotes.ClientRemote:InvokeServer("Train","Leg",1000000000000000000)
+		wait(0.01)
+		end
+	end    
+})
+
+
+Tab:AddToggle({
+	Name = "Inf Wins",
+	Default = false,
+	Callback = function(Value)
+		  getgenv(). Wins = Value
+		
+		while getgenv(). Wins do
+		game:GetService("ReplicatedStorage").Remotes.ClientRemote:InvokeServer("Win",100000000000000000)
+		wait(0.01)
+		end
+	end    
+})
+
+
+Tab:AddToggle({
+	Name = "Auto Rebirth",
+	Default = false,
+	Callback = function(Value)
+		  getgenv(). Reb = Value
+		
+		while getgenv(). Reb do
+		game:GetService("ReplicatedStorage").Remotes.ClientRemote:InvokeServer("Rebirth")
+		wait(0.01)
+		end
+	end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Worlds",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddButton({
+	Name = "World 1",
+	Callback = function()
+      		local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(2.5543978214263916, 13.255223274230957, -522.9889526367188)
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "World 2",
+	Callback = function()
+      		local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(1.640507698059082, 54.70772933959961, -1895.113525390625)
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "World 3",
+	Callback = function()
+      		local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-2.859492301940918, 13.162161827087402, -3272.613525390625)
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "World 4",
+	Callback = function()
+      		local rootPart = game.Players.LocalPlayer.Character.HumanoidRootPart
+rootPart.CFrame = CFrame.new(-2.859492301940918, 13.245223045349121, -4616.21337890625)
+  	end    
+})
